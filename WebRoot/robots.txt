@@ -1,0 +1,6 @@
+#
+# robots.txt for Fengking v1.0
+#
+User-agent: * 
+Disallow: /caches 
+Disallow: /common  

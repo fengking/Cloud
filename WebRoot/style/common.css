@@ -1,0 +1,33 @@
+.tableForm {
+	border-collapse: collapse;
+	font-family:helvetica,tahoma,verdana,sans-serif;
+    padding:1px;
+    font-size:13px;
+}
+
+.tableForm th {
+	text-align: right;
+	border-bottom: 1px dotted #ccc;
+	padding: 5px;
+}
+
+.tableForm td {
+	text-align: left;
+	border-bottom: 1px dotted #ccc;
+	padding: 5px;
+}
+
+.tableForm input {
+	text-align: left;
+	width:170px;
+}
+
+#css_table{
+	display:table;
+}
+.css_tr{
+	display:table-row;
+}
+.css_td{
+	display:table-cell;
+}

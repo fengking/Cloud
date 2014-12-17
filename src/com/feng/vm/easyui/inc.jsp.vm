@@ -1,0 +1,10 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<!--jquery库文件-->
+<script type="text/javascript" src="${pageContext.request.contextPath}/${projConfig.jsFolder}/${projConfig.easyuiFolder}/jquery.min.js" charset="utf-8"></script>
+<!-- jquery Cookie插件 -->
+<script type="text/javascript" src="${pageContext.request.contextPath}/${projConfig.jsFolder}/jquery.cookie.js" charset="utf-8"></script>
+<!-- easyui相关库 -->
+<link id="easyuiTheme" rel="stylesheet" href="${pageContext.request.contextPath}/${projConfig.jsFolder}/${projConfig.easyuiFolder}/themes/default/easyui.css" type="text/css"></link>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/${projConfig.jsFolder}/${projConfig.easyuiFolder}/themes/icon.css" type="text/css"></link>
+<script type="text/javascript" src="${pageContext.request.contextPath}/${projConfig.jsFolder}/${projConfig.easyuiFolder}/jquery.easyui.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/${projConfig.jsFolder}/${projConfig.easyuiFolder}/locale/easyui-lang-zh_CN.js" charset="utf-8"></script>

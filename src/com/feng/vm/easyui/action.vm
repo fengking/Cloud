@@ -1,0 +1,81 @@
+package ${frame.sactionpackage};
+
+import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.Namespace;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import ${frame.smodelpackage}.${table.modelname};
+import com.feng.pageModel.Json;
+import ${frame.sservicepackage}.I${table.modelname}Service;
+import com.opensymphony.xwork2.ModelDriven;
+
+@Namespace("/")
+public class ${table.modelname}Action extends BaseAction implements ModelDriven<TpProject>{
+	private ${table.modelname} ${table.modelname.toLowCase()} = new ${table.modelname}();
+	
+	private I${table.modelname}Service ${table.modelname.toLowCase()}Service;
+
+	public I${table.modelname}Service get${table.modelname}Service() {
+		return ${table.modelname.toLowCase()}Service;
+	}
+	
+    @Autowired
+	public void set${table.modelname}Service(I${table.modelname}Service ${table.modelname.toLowCase()}Service) {
+		this.${table.modelname.toLowCase()}Service = ${table.modelname.toLowCase()}Service;
+	}
+
+	@Action("${table.modelname.toLowCase()}listAction")
+	public void list(){
+		try {
+			super.writeJson(${table.modelname.toLowCase()}Service.findForPaging(${table.modelname.toLowCase()}, rows, page, sort, order));
+		} catch (Exception e) {
+			super.writeErrorJson(e);
+		}
+	}
+	
+	@Action("${table.modelname.toLowCase()}addAction")
+	public void add(){
+		Json j = new Json();
+			try {
+				${table.modelname.toLowCase()}Service.save${table.modelname}(${table.modelname.toLowCase()});
+				j.setObj(${table.modelname.toLowCase()});
+				j.setMsg("保存成功!");
+				j.setSuccess(true);
+				super.writeJson(j);
+			} catch (Exception e) {
+				super.writeErrorJson(e);
+			}
+	}
+	
+	@Action("${table.modelname.toLowCase()}editAction")
+	public void edit(){
+		Json j = new Json();
+		try {
+			${table.modelname.toLowCase()}Service.update${table.modelname}(${table.modelname.toLowCase()});
+			j.setMsg("修改成功!");
+			j.setSuccess(true);
+			j.setObj(project);
+			super.writeJson(j);
+		} catch (Exception e) {
+			super.writeErrorJson(e);
+		}
+	}
+	
+	@Action("${table.modelname.toLowCase()}delAction")
+	public void delete(){
+		Json j = new Json();
+		try {
+			${table.modelname.toLowCase()}Service.delete${table.modelname}(ids.split(","));
+			j.setMsg("删除成功!");
+			j.setSuccess(true);
+			super.writeJson(j);
+		} catch (Exception e) {
+			super.writeErrorJson(e);
+		}
+	}
+
+	public ${table.modelname} getModel() {
+		return ${table.modelname.toLowCase()};
+	}
+	
+}

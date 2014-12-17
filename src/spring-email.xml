@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+http://www.springframework.org/schema/context 
+http://www.springframework.org/schema/context/spring-context-3.0.xsd
+">
+<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="smtp.163.com"/>
+        <property name="protocol" value="smtp" /> 
+        <!-- 465 for Gamil -->
+        <property name="port" value="25"/>
+        <property name="username" value="fengkingweb@163.com"/>
+        <property name="password" value="fengking"/>
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.transport.protocol">smtp</prop>
+                <prop key="mail.smtp.auth">true</prop>
+                <!-- true for Gamil -->
+                <prop key="mail.smtp.starttls.enable">false</prop>
+                <prop key="mail.debug">true</prop>
+            </props>
+        </property>
+    </bean>
+     
+    <!-- send Eamil--> 
+    <bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">  
+       <property name="corePoolSize" value="10"/>  
+       <property name="maxPoolSize" value="30"/>  
+    </bean>
+    
+     <!-- You can have some pre-configured messagess also which are ready to send -->
+    <bean id="preConfiguredMessage" class="org.springframework.mail.SimpleMailMessage">
+        <property name="from" value="fengkingweb@163.com"></property>
+        <property name="subject" value="【志峰创业室】欢迎您注册本系统"/>
+        <property name="text" value=""/>
+    </bean>
+    
+    <!-- Configure Velocity for sending e-mail -->
+	<bean id="velocityEngine"
+		class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+		<!-- 判断初始化什么resourceload给velocity引擎的 -->
+		<property name="preferFileSystemAccess" value="false"/>
+		<property name="resourceLoaderPath" value="classpath:"/>
+		<property name="velocityProperties">    
+              <props>   
+                  <prop key="input.encoding">UTF-8</prop>    
+                  <prop key="output.encoding">UTF-8</prop>    
+                  <prop key="default.contentType">text/html; charset=UTF-8</prop>    
+              </props>    
+        </property>  
+	</bean>
+	<bean id="sender" class="com.feng.email.ApplicationMailer">
+	  <property name="mailSender" ref="mailSender"></property>
+	  <property name="taskExecutor" ref="taskExecutor"></property>
+	  <property name="preConfiguredMessage" ref="preConfiguredMessage"></property>
+	  <property name="velocityEngine" ref="velocityEngine"></property>
+	</bean>
+</beans>

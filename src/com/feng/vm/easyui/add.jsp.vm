@@ -1,0 +1,22 @@
+#set($columnsize=$table.columns.size())
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<script>
+  $(
+   $('#project_add_addTable').propertygrid({
+     data:[
+        #foreach($column in ${table.columns})
+		    {"name":"${column.propertyname}","value":"","group":"","editor":{    
+		        "type":"validatebox","options":{ "validType":"email"   }    
+		        }
+		     },
+	    #end
+    ] 
+   })
+  );
+
+</script>
+<div align="center">
+<form id="project_add_addForm" method="post">
+  <table id="project_add_addTable" style="width:300px"></table>  
+</form>
+</div>

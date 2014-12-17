@@ -1,0 +1,49 @@
+package ${frame.sservicepackage};
+
+import java.io.Serializable;
+
+import ${frame.smodelpackage}.*;
+import com.feng.pageModel.DataGrid;
+
+public interface I${table.modelname}Service {
+	
+    /**
+     * 查询${table.tabcname}列表分页
+     * @param ${table.modelname}
+     * @param pageSize
+     * @param page
+     * @return
+     * @throws Exception
+     */
+    public DataGrid<Serializable> findForPaging( ${table.modelname} ${table.modelname.toLowCase()}, int pageSize, int page, String sort, String order) throws Exception;
+    
+    /**
+     * 查询${table.tabcname}数量
+     * @param ${table.modelname}
+     * @return
+     * @throws Exception
+     */
+    public long findForCount( ${table.modelname} ${table.modelname.toLowCase()}) throws Exception;
+    
+    /**
+     * 新增${table.tabcname}信息
+     * @param ${table.modelname}
+     * @return
+     * @throws Exception
+     */
+    public Serializable save${table.modelname}( ${table.modelname} ${table.modelname.toLowCase()}) throws Exception;
+    
+    /**
+     * 更新${table.tabcname}信息
+     * @param ${table.modelname}
+     * @throws Exception
+     */
+    public void update${table.modelname}( ${table.modelname} ${table.modelname.toLowCase()}) throws Exception;
+    
+    /**
+     * 删除${table.tabcname}信息
+     * @param ids
+     * @throws Exception
+     */
+    public void delete${table.modelname}( String[] ids) throws Exception;
+}

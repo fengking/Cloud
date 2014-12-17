@@ -1,0 +1,24 @@
+<html><head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+ <br>
+<strong>${company.FName}</strong>，您好: <br>
+<br>
+　 欢迎使用【志峰创业室】云系统！ <br>
+　 您可以直接通过IE、FireFox这些浏览器登录<a href="${url}">${url}</a><br>
+<br>
+<strong>您的注册信息如下:</strong> <br>
+<strong>您的登陆名:</strong>&nbsp;${company.AdminName}<br>
+<strong>注册唯一编码:</strong>&nbsp;${company.FCode}<br>
+<strong>注册&nbsp;&nbsp;时间:</strong>${company.ApplyDate}<br> 
+<br>
+<br>
+<br>
+请牢记您的注册信息，以便登陆时使用!<br>
+如果您还有其他疑问，请联系作者  http://fengkinglbs.duapp.com/ ，谢谢合作 <br>
+<br>
+注:此邮件通过系统自动发出，请勿回复!感谢使用
+<br>
+</body></html>

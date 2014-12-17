@@ -1,0 +1,96 @@
+package com.feng.dto;
+
+import java.sql.*;
+import java.io.IOException;
+import java.lang.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
+#set($columnsize=$table.columns.size())
+#set($pkcolumnsize=0)
+#set($pkindex = 0)
+#foreach($column in ${table.columns})
+  #if(${column.pks})
+   #set($pkcolumnsize = $pkcolumnsize+1)
+  #end
+#end
+
+/**
+ * table name: ${table.tabname}
+ * table remark: ${table.tabcname}
+ * generate Time: ${generatetime}
+ */
+@Entity
+@Table(name = "${table.tabname}")
+public class ${table.modelname} implements java.io.Serializable,java.io.Closeable{
+
+//////////////////////////// Fields ${pkcolumnsize}/////////////////////////////////////////
+	
+#foreach($column in ${table.columns})
+	  /** ${column.columncname}  , ${column.datatype}  , #if(${column.pks}) PK , #end #if(!${column.isnulls}) NOT NULL  ,#end #if(${column.identity}) Identity  , #end #if(!${column.precision}) Length: ${column.length} #else Precision: ${column.precision} , Scale: ${column.c} #end #if(${column.defaults})Default:${column.defaults}#end */
+	    protected ${column.javatype}  ${column.propertyname};
+	    
+#end
+
+//////////////////////////////////////////////////////////////////////////////
+
+	/** default constructor */
+	public ${table.modelname}() {
+	}
+
+#if(${pkcolumnsize}>0)
+	/** minimal constructor */
+	public ${table.modelname}(#foreach($column in ${table.columns})#if(${column.pks})#set($pkindex = $pkindex+1) ${column.javatype} ${column.propertyname}#if(${pkcolumnsize} != ${pkindex}),#end#end#end) {
+		super();
+#foreach($column in ${table.columns})#if(${column.pks})		this.${column.propertyname} = ${column.propertyname};#end
+#end
+        
+        }
+#end
+
+	/** full constructor */
+	public ${table.modelname}(#foreach($column in ${table.columns}) ${column.javatype} ${column.propertyname}#if(${columnsize} != ${velocityCount}),#end#end) {
+		super();
+#foreach($column in ${table.columns})
+		this.${column.propertyname} = ${column.propertyname};
+#end
+	}
+	
+    // Property accessors
+   ${modeldesc}
+#foreach($column in ${table.columns})
+	
+	/** ${column.columncname}  , ${column.datatype}  , #if(${column.pks}) PK , #end #if(!${column.isnulls}) NOT NULL  ,#end #if(${column.identity}) Identity  , #end #if(!${column.precision}) Length: ${column.length} #else Precision: ${column.precision} , Scale: ${column.scale} #end*/
+#if(${column.pks} || ${pkcolumnsize} == 0)    @Id #if(${column.identity}) @GeneratedValue(strategy=GenerationType.IDENTITY) #end
+
+#end
+    @Column(name = "${column.columnname}", #if(${column.pks})#if(!${column.identity})unique = true,#end#end nullable =#if(${column.isnulls}) true,#else false,#end #if(!${column.precision}) length = ${column.length}#else precision = ${column.precision} , scale = ${column.scale} #end)
+   	public ${column.javatype} get${column.propertyname.substring(0,1).toUpperCase()}${column.propertyname.substring(1)}() {
+		return this.${column.propertyname};
+	}
+
+	/** ${column.columncname} , ${column.datatype}  , #if(${column.pks}) PK , #end #if(${column.isnulls}) #else NOT NULL  ,#end Length: ${column.length}  #if(${column.precision})Precision: ${column.precision} Scale: ${column.scale} #end */
+	public void set${column.propertyname.substring(0,1).toUpperCase()}${column.propertyname.substring(1)}(${column.javatype} ${column.propertyname}) {
+		this.${column.propertyname} = ${column.propertyname};
+	}
+#end
+
+	public String toString() {
+		return #foreach($column in ${table.columns})"${column.columncname.replaceAll("\n","").replaceAll("\r","").trim()}${column.propertyname}="+${column.propertyname}#if(${columnsize} != ${velocityCount})+","+#end#end;
+	}
+	
+	public Object clone() throws CloneNotSupportedException {
+	    ${table.modelname} model = new ${table.modelname}();
+	    #foreach($column in ${table.columns})
+		  model.set${column.propertyname.substring(0,1).toUpperCase()}${column.propertyname.substring(1)}(this.${column.propertyname});
+		#end
+		return model;
+	}
+
+	public void close() throws IOException {
+	}
+}
