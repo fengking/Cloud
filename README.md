@@ -1,12 +1,12 @@
 # 志峰创业室 开源框架 fengking_v1.0.0<br />
-### 免费、开源、支持二次开发扩展的小型CRM发布平台，让你在开发中更专注于业务。<br />
-http://fengkinglbs.duapp.com/<br />
-http://mobilecloud.duapp.com/<br />
+### 免费、开源、支持二次开发扩展的小型CRM系统框架，让你在开发中更专注于业务。<br />
+ 官网： http://fengkinglbs.duapp.com/<br />
+        http://mobilecloud.duapp.com/<br />
 作者：志峰创业室<br />
 qq：769022563（加Q请带备注信息）<br />
 E-mail：769022563@qq.com<br />
 有疑问可以Q我或者给我发邮件，平时上班时间不登QQ<br />
-个人公众号<br>
+微信公众号<br>
 ![FrankFactory](http://mobilecloud.duapp.com/common/images/mobilefieldwork/images/code.png)
 
 ### 文档：<br />
@@ -20,7 +20,7 @@ E-mail：769022563@qq.com<br />
 
 
 ### 开发环境：<br />
-* JDK1.6 + jetty1.7 + myeclipse(IntelliJ IDEA)<br />
+* JDK1.6 + jetty1.7 + eclipse<br />
 
 ### 开发框架：<br />
 * spring3.2 + springMVC + hibernate4 + freemarker<br />
