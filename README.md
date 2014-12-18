@@ -3,6 +3,7 @@
  官网： http://fengkinglbs.duapp.com/<br />
         http://mobilecloud.duapp.com/<br />
 作者：志峰创业室<br />
+交流群：302138322  
 qq：769022563（加Q请带备注信息）<br />
 E-mail：769022563@qq.com<br />
 有疑问可以Q我或者给我发邮件，平时上班时间不登QQ<br />
