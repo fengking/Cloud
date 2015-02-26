@@ -125,10 +125,10 @@
 	<div onclick="changeTheme('bootstrap');">bootstrap</div>
 	<div onclick="changeTheme('black');">black</div>
 	<div onclick="changeTheme('metro');">metro</div>
-	<div onclick="changeTheme('ui-cupertino');">ui-cupertino</div>
-	<div onclick="changeTheme('ui-dark-hive');">ui-dark-hive</div>
-	<div onclick="changeTheme('ui-pepper-grinder');">ui-pepper-grinder</div>
-	<div onclick="changeTheme('ui-sunny');">ui-sunny</div>
+	<div onclick="changeTheme('ui-cupertino');">cupertino</div>
+	<div onclick="changeTheme('ui-dark-hive');">dark-hive</div>
+	<div onclick="changeTheme('ui-pepper-grinder');">pepper-grinder</div>
+	<div onclick="changeTheme('ui-sunny');">sunny</div>
 </div>
 <div id="layout_north_kzmbMenu" style="width: 100px; display: none;">
 	<div onclick="showUserInfo();">个人信息</div>
@@ -143,10 +143,10 @@
 			<div onclick="changeTheme('bootstrap');">bootstrap</div>
 			<div onclick="changeTheme('black');">black</div>
 			<div onclick="changeTheme('metro');">metro</div>
-			<div onclick="changeTheme('ui-cupertino');">ui-cupertino</div>
-			<div onclick="changeTheme('ui-dark-hive');">ui-dark-hive</div>
-			<div onclick="changeTheme('ui-pepper-grinder');">ui-pepper-grinder</div>
-			<div onclick="changeTheme('ui-sunny');">ui-sunny</div>
+			<div onclick="changeTheme('ui-cupertino');">cupertino</div>
+			<div onclick="changeTheme('ui-dark-hive');">dark-hive</div>
+			<div onclick="changeTheme('ui-pepper-grinder');">pepper-grinder</div>
+			<div onclick="changeTheme('ui-sunny');">sunny</div>
 		</div>
 	</div>
 </div>

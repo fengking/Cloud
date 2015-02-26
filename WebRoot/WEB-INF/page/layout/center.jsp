@@ -21,6 +21,35 @@ $(function() {
 				}
 				return;
 			}
+			if(type=='closeleft')
+			{
+				var prevall = $('.tabs-selected').prevAll();
+				if(prevall.length==0){
+					msgShow('系统提示','后边没有啦~~','info'); 
+					return false;
+				}
+				prevall.each(function(i,n){
+					var t=$('a:eq(0) span',$(n)).text();
+					$('#centerTabs').tabs('close',t);
+				});
+				return;
+
+			}
+			if(type=='closeright')
+			{
+				var nextall = $('.tabs-selected').nextAll();
+				if(nextall.length==0){
+					msgShow('系统提示','后边没有啦~~','info');
+					 
+					return false;
+				}
+				nextall.each(function(i,n){
+					debugger;
+					var t=$('a:eq(0) span',$(n)).text();
+					$('#centerTabs').tabs('close',t);
+				});
+				return ;
+			}
 
 			var allTabs = centerTabs.tabs('tabs');
 			var closeTabsTitle = [];
@@ -51,6 +80,44 @@ $(function() {
 			}).data('tabTitle', title);
 		}
 	});
+	
+	//关闭当前右侧的TAB
+	/* $('#mm-tabcloseright').click(function(){
+		debugger;
+		var nextall = $('.tabs-selected').nextAll();
+		if(nextall.length==0){
+			msgShow('系统提示','后边没有啦~~','error');
+			//alert('后边没有啦~~');
+			//msgShow
+			return false;
+		}
+		nextall.each(function(i,n){
+			debugger;
+			var t=$('a:eq(0) span',$(n)).text();
+			$('#centerTabs').tabs('close',t);
+		});
+		return false;
+	}); */
+	
+	//关闭当前左侧的TAB
+	/* $('#mm-tabcloseleft').click(function(){
+		debugger;
+		var prevall = $('.tabs-selected').prevAll();
+		if(prevall.length==0){
+			msgShow('系统提示','后边没有啦~~','info');
+			//alert('到头了，前边没有啦~~');
+			return false;
+		}
+		prevall.each(function(i,n){
+			var t=$('a:eq(0) span',$(n)).text();
+			$('#centerTabs').tabs('close',t);
+		});
+		return false;
+	}); */
+	//弹出信息窗口 title:标题 msgString:提示信息 msgType:信息类型 [error,info,question,warning]
+	function msgShow(title, msgString, msgType) {
+		$.messager.alert(title, msgString, msgType);
+	}
 });
 </script>
 <div id="centerTabs"style="overflow: hidden;">
@@ -62,4 +129,8 @@ $(function() {
 	<div type="close">关闭</div>
 	<div type="closeOther">关闭其他</div>
 	<div type="closeAll">关闭所有</div>
+	<div type="closeright" id="mm-tabcloseright">
+            当前页右侧全部关闭</div> 
+     <div type="closeleft" id="mm-tabcloseleft">
+            当前页左侧全部关闭</div>
 </div>
