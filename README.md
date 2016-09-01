@@ -8,7 +8,7 @@ qq：769022563（加Q请带备注信息）<br />
 E-mail：769022563@qq.com<br />
 有疑问可以Q我或者给我发邮件，平时上班时间不登QQ<br />
 微信公众号<br>
-![FrankFactory](http://mobilecloud.duapp.com/common/images/mobilefieldwork/images/code.png)
+![FrankFactory](http://www.zonvin.com/res/images/fengking_512.png)
 
 ### 文档：<br />
 * 说明文档：doc目录下<br />
