@@ -10,7 +10,7 @@ qq：769022563（加Q请带备注信息）
 E-mail：769022563@qq.com
 有疑问可以Q我或者给我发邮件，平时上班时间不登QQ
 微信公众号
-FrankFactory
+[FrankFactory](http://www.zonvin.com/res/images/fengking_512.png)
 
 文档：
 
